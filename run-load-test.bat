@@ -10,7 +10,7 @@ echo Starting Load Test...
 echo Timestamp: %DATE% %TIME%
 echo.
 
-k6 run load-test.js --out csv=results/load-test-results.csv --out json=results/load-test-results.json
+"C:\Program Files\k6\k6.exe" run load-test.js --out csv=results/load-test-results.csv --out json=results/load-test-results.json
 
 echo.
 echo Load Test completed!

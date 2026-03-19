@@ -8,10 +8,11 @@ Write-Host ""
 
 # Verificar se K6 está instalado
 Write-Host "Verificando se K6 está instalado..." -ForegroundColor Yellow
-try {
-    $k6Version = k6 version
+$k6Path = "C:\Program Files\k6\k6.exe"
+if (Test-Path $k6Path) {
+    $k6Version = & $k6Path version
     Write-Host "✅ K6 encontrado: $k6Version" -ForegroundColor Green
-} catch {
+} else {
     Write-Host "❌ K6 não está instalado!" -ForegroundColor Red
     Write-Host "Consulte INSTALL_K6.md para instruções de instalação." -ForegroundColor Yellow
     Exit 1
@@ -31,7 +32,7 @@ Write-Host "Iniciado em: $(Get-Date -Format 'dd/MM/yyyy HH:mm:ss')"
 Write-Host ""
 
 $loadTestStart = Get-Date
-k6 run load-test.js --out csv=results/load-test-results.csv --out json=results/load-test-results.json
+& $k6Path run load-test.js --out csv=results/load-test-results.csv --out json=results/load-test-results.json
 $loadTestEnd = Get-Date
 $loadTestDuration = $loadTestEnd - $loadTestStart
 
@@ -58,7 +59,7 @@ Write-Host "Iniciado em: $(Get-Date -Format 'dd/MM/yyyy HH:mm:ss')"
 Write-Host ""
 
 $spikeTestStart = Get-Date
-k6 run spike-test.js --out csv=results/spike-test-results.csv --out json=results/spike-test-results.json
+& $k6Path run spike-test.js --out csv=results/spike-test-results.csv --out json=results/spike-test-results.json
 $spikeTestEnd = Get-Date
 $spikeDuration = $spikeTestEnd - $spikeTestStart
 

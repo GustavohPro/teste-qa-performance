@@ -10,7 +10,7 @@ echo Starting Spike Test...
 echo Timestamp: %DATE% %TIME%
 echo.
 
-k6 run spike-test.js --out csv=results/spike-test-results.csv --out json=results/spike-test-results.json
+"C:\Program Files\k6\k6.exe" run spike-test.js --out csv=results/spike-test-results.csv --out json=results/spike-test-results.json
 
 echo.
 echo Spike Test completed!
