@@ -1,0 +1,22 @@
+{
+  "name": "blazedemo-performance-test",
+  "version": "1.0.0",
+  "description": "Performance testing for BlazeDemo flight booking application using K6",
+  "main": "load-test.js",
+  "scripts": {
+    "load-test": "k6 run load-test.js --out csv=results/load-test-results.csv",
+    "spike-test": "k6 run spike-test.js --out csv=results/spike-test-results.csv",
+    "load-test-json": "k6 run load-test.js --out json=results/load-test-results.json",
+    "spike-test-json": "k6 run spike-test.js --out json=results/spike-test-results.json",
+    "all-tests": "npm run load-test && npm run spike-test"
+  },
+  "keywords": [
+    "performance",
+    "k6",
+    "load-testing",
+    "spike-testing",
+    "blazedemo"
+  ],
+  "author": "QA Engineer",
+  "license": "MIT"
+}
