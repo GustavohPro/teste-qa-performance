@@ -1,0 +1,210 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║        🎯 TESTE DE PERFORMANCE BLAZEDEMO - PROJETO COMPLETO 🎯               ║
+║                                                                               ║
+║                  ✅ Toda a estrutura foi criada com sucesso!                  ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+📁 ARQUIVOS CRIADOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ SCRIPTS K6 (Core)
+  ├─ 📄 load-test.js           → Teste de carga (250 VUs, 5 min)
+  └─ 📄 spike-test.js          → Teste de pico (spike até 500 VUs)
+
+📚 DOCUMENTAÇÃO
+  ├─ 📖 README.md              → Documentação completa do projeto
+  ├─ 📋 NEXT_STEPS.md          → Guia rápido de próximos passos
+  ├─ 📋 INSTALL_K6.md          → Instruções para instalar K6
+  ├─ 📋 GITHUB_PUSH.md         → Guia para fazer push no GitHub
+  ├─ 📋 REPORT_TEMPLATE.md     → Template para preencher com resultados
+  └─ 📋 NEXT_STEPS.md          → Este arquivo
+
+🛠️ SCRIPTS AUXILIARES
+  ├─ ⚙️ run-all-tests.ps1      → PowerShell (recomendado - Windows)
+  ├─ 🖥️ run-load-test.bat      → Batch script para teste de carga
+  └─ 🖥️ run-spike-test.bat     → Batch script para teste de pico
+
+⚙️ CONFIGURAÇÃO
+  ├─ 📦 package.json           → NPM scripts e dependências
+  └─ 🚫 .gitignore             → Arquivos ignorados pelo git
+
+📂 DIRETÓRIOS
+  └─ 📁 results/               → Pasta para armazenar resultados (CSV/JSON)
+
+🔧 GIT
+  └─ 📦 .git/                  → Repositório Git inicializado
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🚀 COMEÇAR AGORA - 3 PASSOS RÁPIDOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+1️⃣ INSTALAR K6
+   PowerShell (Admin):
+   $ choco install k6
+   
+   Ou visite: https://github.com/grafana/k6/releases
+
+2️⃣ EXECUTAR TESTES
+   PowerShell:
+   $ cd c:\Users\marco\OneDrive\Desktop\Projetos\teste-qa-performance
+   $ .\run-all-tests.ps1
+   
+   Tempo total: ~9 minutos
+
+3️⃣ FAZER PUSH GITHUB
+   Criar repositório público em: https://github.com/new
+   Depois:
+   $ git remote add origin https://github.com/seu-usuario/teste-qa-performance.git
+   $ git push -u origin main
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 O QUE CADA SCRIPT FAZ:
+═══════════════════════════════════════════════════════════════════════════════
+
+📈 LOAD TEST (load-test.js)
+   Objetivo: Simular carga constante de 250 usuários
+   Tempo: 5 minutos
+   Estágios:
+   • 0-1 min:  0 → 50 VUs (aquecimento)
+   • 1-3 min: 50 → 250 VUs (ramp-up)
+   • 3-4 min: 250 VUs (sustain - carga máxima constante)
+   • 4-5 min: 250 → 0 VUs (ramp-down)
+   
+   Critério de Aceita ção:
+   ✓ 250 RPS (requisições por segundo)
+   ✓ 90º percentil < 2 segundos
+   ✓ Taxa de erro < 10%
+
+📍 SPIKE TEST (spike-test.js)
+   Objetivo: Simular pico abrupto de carga (2x a carga normal)
+   Tempo: 3,5 minutos
+   Estágios:
+   • 0-1 min:    0 → 100 VUs (aquecimento leve)
+   • 1-1.5 min: 100 → 500 VUs (spike abrupto!)
+   • 1.5-2.5 min: 500 VUs (sustain no pico)
+   • 2.5-3 min: 500 → 100 VUs (ramp-down rápido)
+   • 3-3.5 min: 100 → 0 VUs (final)
+   
+   Teste de resiliência e picos inesperados
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🎯 CRITÉRIO DE ACEITAÇÃO (REQUISITO):
+═══════════════════════════════════════════════════════════════════════════════
+
+                        MÉTRICA            META              STATUS
+                        ═════════════════════════════════════════════
+                        Requisições/seg → 250 RPS        [Será validado]
+                        90º percentil   → < 2 segundos  [Será validado]
+                        Taxa de erro    → < 10%         [Será validado]
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📖 FLUXO DE CENÁRIO AUTOMATIZADO:
+═══════════════════════════════════════════════════════════════════════════════
+
+Os testes simulam uma jornada completa de compra de passagem aérea:
+
+  1️⃣  Acessar www.blazedemo.com
+      GET / → Carrega página inicial
+  
+  2️⃣  Selecionar rota
+      POST /reserve.php → Boston → Berlin
+  
+  3️⃣  Escolher voo
+      GET /reserve.php → Mostra opções disponíveis
+  
+  4️⃣  Preencher dados
+      POST /purchase.php → Nome, endereço, cartão de crédito
+  
+  5️⃣  Confirmar compra
+      POST /purchase.php → Finaliza transação
+  
+  ✅ Sucesso! Passagem "comprada" com sucesso
+
+Este fluxo se repete centenas de vezes por VU, gerando a carga desejada.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 CHECKLIST - O QUE FAZER AGORA:
+═══════════════════════════════════════════════════════════════════════════════
+
+  □ Ler este arquivo (NOW!)
+  □ Ler NEXT_STEPS.md para instruções step-by-step
+  □ Ler README.md para entender melhor o projeto
+  
+  □ Instalar K6 (siga INSTALL_K6.md)
+  □ Executar .\run-all-tests.ps1
+  
+  □ Preencher REPORT_TEMPLATE.md com os resultados
+  □ Copiar para EXECUTION_REPORT.md
+  
+  □ Criar repositório no GitHub (PÚBLICO)
+  □ Fazer push do código
+  
+  □ Submeter URL no formulário do processo seletivo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+💡 DICAS:
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Execute os testes fora de horários de pico (madrugada)
+✓ Se um teste falhar, provavelmente é latência de rede
+✓ É NORMAL não atingir 100% dos critérios em primeiro teste
+✓ O importante é a ANÁLISE e DOCUMENTAÇÃO
+✓ Mostre que você entende o que está testando
+✓ Seja honesto nos resultados - isso impressiona mais!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+❓ PRECISA DE AJUDA?
+═══════════════════════════════════════════════════════════════════════════════
+
+  📖 Leia em ordem:
+     1. NEXT_STEPS.md (começa aqui!)
+     2. README.md (informações detalhadas)
+     3. INSTALL_K6.md (se K6 não instalar)
+     4. GITHUB_PUSH.md (para fazer push)
+     5. REPORT_TEMPLATE.md (para preencher resultados)
+
+  🌐 Recursos online:
+     • K6 Docs: https://k6.io/docs/
+     • BlazeDemo: https://www.blazedemo.com/
+     • GitHub: https://github.com/
+
+  ⚠️ Problemas:
+     • K6 não instala? → INSTALL_K6.md
+     • URL do site offline? → Tente após alguns minutos
+     • Timeout? → Execute em horário de menor carga
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📍 LOCALIZAÇÃO DO PROJETO:
+═══════════════════════════════════════════════════════════════════════════════
+
+c:\Users\marco\OneDrive\Desktop\Projetos\teste-qa-performance\
+
+Arquivos prontos para usar: ✅
+Repositório Git inicializado: ✅
+Documentação completa: ✅
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🎊 STATUS: PROJETO PRONTO PARA EXECUÇÃO! 🎊
+═══════════════════════════════════════════════════════════════════════════════
+
+Próxima ação: Abra NEXT_STEPS.md para começar!
+
+Boa sorte com o desafio! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
+Última atualização: 19 de março de 2026
+═══════════════════════════════════════════════════════════════════════════════
+
