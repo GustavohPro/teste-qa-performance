@@ -16,8 +16,11 @@ jobs:
     
     - name: Setup K6
       run: |
-        curl https://dl.k6.io/gpg.key | sudo apt-key add -
-        echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6-stable.list
+        sudo apt-get update
+        sudo apt-get install -y apt-transport-https
+        sudo mkdir -p /etc/apt/keyrings
+        curl -fsSL https://dl.k6.io/key.gpg | sudo tee /etc/apt/keyrings/k6-archive-keyring.gpg > /dev/null
+        echo "deb [signed-by=/etc/apt/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6-stable.list
         sudo apt-get update
         sudo apt-get install -y k6
     
