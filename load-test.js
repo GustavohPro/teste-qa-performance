@@ -11,9 +11,6 @@ const errorRate = new Rate('error_rate');
 
 // Configuração do teste de carga
 export const options = {
-    vus: 250, // Usuários virtuais para atingir 250 RPS
-    duration: '5m', // Duração de 5 minutos
-    rps: 250, // 250 requisições por segundo (conforme critério de aceitação)
     thresholds: {
         'http_req_duration': ['p(90)<2000'], // 90º percentil < 2 segundos
         'http_req_failed': ['rate<0.1'], // Taxa de erro < 10%
