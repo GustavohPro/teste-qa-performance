@@ -130,7 +130,3 @@ git status
 # Desfazer último commit (local apenas)
 git reset --soft HEAD~1
 ```
-
----
-
-**Pronto!** Seu projeto está no GitHub pronto para submissão! 🚀
